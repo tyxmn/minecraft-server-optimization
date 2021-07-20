@@ -1,7 +1,6 @@
 ## Instruction for minecraft server optimization
 
-18.07.21. Release: 1.3. Discord: cubelius#0988
-, **the translation may contain mistakes.**
+**The translation may contain mistakes.**
 
 This tutorial will help you maximally optimize minecraft server and eliminate lag. After you read all the way through and do all that was recommended by me - your server in 99% of cases will run much better and more efficiently.
 
