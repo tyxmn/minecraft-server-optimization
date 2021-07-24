@@ -39,7 +39,7 @@ I advise you not to clog your server with too many plugins. The more plugins, th
 
 ## Server.jar
 
-I recommend using only [Airplane for 1.17.x](https://github.com/TECHNOVE/Airplane). **Do not use** Bukkit, Spigot, Paper, as it is a relic of the past, which have many problems. Paper fixed a lot of bugs and made a lot of patches, there are some performance issues with it, but it can still be used if you have enough power.
+I recommend using [Airplane](https://github.com/TECHNOVE/Airplane) for 1.16-1.17.x. For 1.12 and below - Spigot. **Do not use** [Bukkit](https://getbukkit.org/), [Spigot](https://getbukkit.org/), [Paper](https://papermc.io/downloads), [Yatopia](https://github.com/YatopiaMC) & [Sugarcane](https://github.com/SugarcaneMC/Sugarcane) for new versions, as they are relics of the past that have many problems (of course, if you know how to patch, go ahead, use Spigot and optimize your server). Paper fixed a lot of bugs and made a lot of patches, there are some problems with performance. Tuinity and Purpur aren't bad either, you can use those .jars.
 
 ## Configs
 
