@@ -48,7 +48,7 @@ I recommend using [Airplane](https://github.com/TECHNOVE/Airplane) for 1.16-1.17
 **view-distance** - chunk loading distance. If the server has a lot of players and lags occur because of the chunks - reduce this parameter to 4-5 chunks. 6 chunks is enough for vanilla survival.
 
 ````java
-view-distance: 6
+view-distance=6
 ````
 
 ### bukkit.yml
