@@ -48,38 +48,38 @@ I recommend using [Airplane](https://github.com/TECHNOVE/Airplane) for 1.16-1.17
 **view-distance** - chunk loading distance. If the server has a lot of players and lags occur because of the chunks - reduce this parameter to 4-5 chunks. 6 chunks is enough for vanilla survival.
 
 ````java
-view-distance: 6
+view-distance=6
 ````
 
 ### bukkit.yml
 **spawn-limits** - parameter, which is responsible for changing the number of mobs per player. These limits apply only to animals or monsters in loaded chunks. If you don't want bats, set it to 0.
 
-````java
+````yaml
 monsters: 25, animals: 8, water-animals: 2, water-ambient: 1, ambient: 1
 ````
 
 **period-in-ticks** - the smaller, the faster the server will unload the empty chunks. If your server is played by more than 60 people, it is advisable to lower this parameter to 350.
 
-````java
+````yaml
 period-in-ticks: 400
 ````
 
 **autosave** - if the server has an HDD drive, you will have to suffer from lags due to automatic saving. You must have an SSD in order for your server to work properly. Raise it to 12000 to play the game comfortably. By the way, if you have autosave plugin - remove it, use this parameter, it is no worse.
 
-````java
+````yaml
 autosave: 12000
 ````
 
 ### spigot.yml
 **save-user-cache-on-stop-only** - this parameter disables permanent saving of user data. If your server crashes, user data will not be saved. It is advisable to restart your server every 48-72 hours to prevent losses. **Change this parameter at your own risk!**
 
-````java
+````yaml
 save-user-cache-on-stop-only: true
 ````
 
 **entity-activation-range** - is a group of parameters that regulates how close animals and mobs must be to you to activate your AI. The numbers denote the distance in blocks. If you leave the "AI activation zone" - the mobs won't move. If you go back up, they'll turn on their AI. That's how it all works.
 
-````java
+````yaml
 animals: 16
 monsters: 24
 raiders: 48
@@ -88,7 +88,7 @@ misc: 8
 
 **mob-spawn-range** - this parameter adjusts the spawn radius of the mobs near you. The value should be one less than the number of chunks you set.
 
-````java
+````yaml
 mob-spawn-range: 5
 ````
 
@@ -96,25 +96,25 @@ mob-spawn-range: 5
 
 **max-auto-save-chunks-per-tick** - the parameter slows down the frequency of saving chunks. Don't set it lower than 12, otherwise some chunks might not be saved at all.
 
-````java
+````yaml
 max-auto-save-chunks-per-tick: 12
 ````
 
 **mob-spawner-tick-rate** - the ticks of the mob triggered by the spawner. **Don't set it any higher.**
 
-````java
+````yaml
 mob-spawner-tick-rate: 2
 ````
 
 **prevent-moving-into-unloaded-chunks** - if the player somehow got into an unloaded chunk - he will constantly fall down (into the void), and when the server loads the chunks, it can play a cruel joke with him, not teleporting the player back. The player can simply die in the void. You can enable this option to prevent this from happening.
 
-````java
+````yaml
 prevent-moving-into-unloaded-chunks: true
 ````
 
 **armor-stands-tick** - by turning off this parameter, the server will not check the armor stands.
 
-````java
+````yaml
 armor-stands-tick: false
 ````
 
