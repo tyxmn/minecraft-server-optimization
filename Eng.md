@@ -1,6 +1,5 @@
+> The translation may contain mistakes. Is the translation inaccurate? Write to me! - contact me in discord (cubelius#0988).
 ## Instruction for minecraft server optimization
-
-**The translation may contain mistakes.**
 
 This tutorial will help you maximally optimize minecraft server and eliminate lag. After you read all the way through and do all that was recommended by me - your server in 99% of cases will run much better and more efficiently.
 
@@ -39,7 +38,7 @@ I advise you not to clog your server with too many plugins. The more plugins, th
 
 ## Server.jar
 
-I recommend using [Airplane](https://github.com/TECHNOVE/Airplane) for 1.16-1.17.x. For 1.12 and below - Spigot. **Do not use** [Bukkit](https://getbukkit.org/), [Spigot](https://getbukkit.org/), [Paper](https://papermc.io/downloads), [Yatopia](https://github.com/YatopiaMC) & [Sugarcane](https://github.com/SugarcaneMC/Sugarcane) for new versions, as they are relics of the past that have many problems (of course, if you know how to patch, go ahead, use Spigot and optimize your server). Paper fixed a lot of bugs and made a lot of patches, there are some problems with performance. Tuinity and Purpur aren't bad either, you can use those .jars.
+I recommend using [Airplane](https://github.com/TECHNOVE/Airplane) for 1.16-1.17.x. For 1.12 and below - Spigot. **Do not use** [Bukkit](https://getbukkit.org/), [Spigot](https://getbukkit.org/), [Paper](https://papermc.io/downloads), [Yatopia](https://github.com/YatopiaMC) & [Sugarcane](https://github.com/SugarcaneMC/Sugarcane). Tuinity and Purpur aren't bad either, you can use those .jars.
 
 ## Configs
 
