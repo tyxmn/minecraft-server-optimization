@@ -1,4 +1,4 @@
-> The translation may contain mistakes. Is the translation inaccurate? Write to me! - contact me in discord (cubelius#0988).
+> The translation may contain mistakes. Is the translation inaccurate? Write to me! - contact me in discord (Cubelius#0988).
 ## Instruction for minecraft server optimization
 
 This tutorial will help you maximally optimize minecraft server and eliminate lag. After you read all the way through and do all that was recommended by me - your server in 99% of cases will run much better and more efficiently.
