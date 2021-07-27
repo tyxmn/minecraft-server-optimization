@@ -5,6 +5,6 @@
 
 ## Warning
 
-If your server for some reason began to crash or work only worse after optimization - contact me in discord (cubelius#0988).
+If your server for some reason began to crash or work only worse after optimization - contact me in discord (Cubelius#0988).
 
 Release 1.4, update: July 24.
