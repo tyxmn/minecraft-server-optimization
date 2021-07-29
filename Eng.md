@@ -13,7 +13,7 @@ If you have a low TPS, you can write the following commands: `/timings on`, wait
 
 ## RAM
 
-For a comfortable game with 40 players, you need 6 GB. I recommend putting [Aikars flags](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/), which reduce RAM consumption. In addition to these flags, you need to put [this plugin](https://www.spigotmc.org/resources/garbage-collector.26902/).
+For a comfortable game with 40 people, you will need 6 GB. I recommend putting this garbage collector: `-XX:+UseSerialGC`. It effectively removes excess garbage from RAM.
 
 ```
 04 GB RAM, 2 cores: up to 25 players, 20 plugins.
