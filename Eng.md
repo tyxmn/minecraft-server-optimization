@@ -11,9 +11,9 @@ Normal TPS is 19.8-20.0 which is where most servers should be. If you notice tha
 
 If you have a low TPS, you can write the following commands: `/timings on`, wait a few hours, `/timings paste`. After that you will get a link and go to a site where you can see what is stressing the server. If you swipe a little lower, you will see a table where you can determine what is causing the TPS to drop. If you do not understand yourself and the cause of lag can not determine - write to any forum, you will help.
 
-## RAM
+## RAM, etc.
 
-For a comfortable game with 40 people, you will need 6 GB. I recommend putting this garbage collector: `-XX:+UseSerialGC`. It effectively removes excess garbage from RAM.
+For a comfortable game with 40 people, you will need 6 GB. I recommend putting this garbage collector: `-XX:+UseSerialGC`. It effectively removes excess garbage from RAM. I recommend using the entire processor if you are planning to create a powerful server for a large number of players. If the `i9-9900KF` has 8 cores, take the 8 core tariff. Perhaps the host will give you a discount if you pay for a rather long period ( 12 months or more ).
 
 ```
 04 GB RAM, 2 cores: up to 25 players, 20 plugins.
