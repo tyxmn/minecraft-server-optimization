@@ -11,7 +11,11 @@ If you have a low TPS, write the following commands: ``/timings on``, wait a few
 
 ### RAM and CPU usage
 
-You have clogged RAM, and the processor is loaded under 80+% at low load? You need to increase the capacity of your server, because the lack of cores or GB of RAM is what's causing you problems.
+You have clogged RAM, and the processor is loaded under 80+% at low load? You need to increase the capacity of your server, because the lack of cores or GB of RAM is what's causing you problems. About RAM: you **must** put a garbage collector on server startup: -XX:+UseSerialGC. In my opinion, SerialGC is the best. Just add it to the server startup line. Example:
+
+````yaml
+java -Xmx2G -Xms16G -XX:+UseSerialGC -jar airplane.jar nogui 
+````
 
 ### Plugins
 
