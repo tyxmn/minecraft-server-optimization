@@ -1,42 +1,76 @@
 > The translation may contain mistakes. Is the translation inaccurate? Write to me! - contact me in discord (Cubelius#0988).
-# Instructions for minecraft server optimization
+![mso](https://user-images.githubusercontent.com/74359983/139340373-ced4a416-e216-452b-823d-1b260fa131ad.png)
 
-This tutorial will help you optimize your minecraft server and eliminate lags as much as possible. After you read all the way to the end and do all that was recommended by me - your server in 99% of cases will work much better and more productive.
+Lags in Minecraft server, what to do? - Believe me, this is the most popular question that almost every newcomer to servers in this wonderful
+game. Do not worry, because you have already taken the first step to solving this problem. Read the entire repository carefully and follow my recommendations step by step.
 
-#### How to find the problem
-A normal TPS is 19.8-20.0. This is the position most Minecraft servers stick to. If you notice things starting to slow down and your players start complaining about problems, type ``/tps`` and see if the server is really lagging. Also, the console may show a warning: Can't keep up! Is the server overloaded? If this happens, take action right away.
+## Warning
 
-### Timings
-If you have a low TPS, write the following commands: ``/timings on``, wait a few hours, ``/timings paste``. After that you will get a link and get to a site where you can see what is stressing the server. If you scroll a little further down, you will see a table where you can determine what is causing the TPS to drop. If you yourself do not understand anything and can not determine the cause of the lag - write to some forum, you will definitely help.
+This article is based on 1.17.1 with vanilla kernels. If you have mods, I don't think you have found a suitable guide. Also, please note
+that the results of stability and correct operation of the server after optimization may vary from case to case. If you're sure that I made a mistake
+or something is missing here - please open the problem in the Issues section.
 
-### RAM and CPU usage
+## Start
 
-You have clogged RAM, and the processor is loaded under 80+% at low load? You need to increase the capacity of your server, because the lack of cores or GB of RAM is what's causing you problems. About RAM: you **must** put a garbage collector on server startup: -XX:+UseSerialGC. In my opinion, SerialGC is the best. Just add it to the server startup line. Example:
+### TPS
+TPS is an abbreviation for Ticks per Second. The higher the value, the better the performance of the server. On average this value
+19.8 to 20.0. You can type in `/tps` and look at the numbers. Are your TPS numbers below 19.5? The server is sluggish.
 
+### Server.jar
+The choice of server.jar (kernel) is a very important thing when building your server. The kernel has a direct influence on the performance of the server. At the moment there are several kernels that I recommend using, but there are also some that you should absolutely avoid.
+
+I recommend:
+- [Airplane](https://airplane.gg) - a stable and quite popular kernel, gaining momentum among servers. Supported by experienced developers, patches are made very quickly. Fork Paper.
+- [Patina](https://github.com/PatinaMC/Patina) - a new, high-quality kernel. My tests lasted about 14 days and one conclusion can be made - this thing is very fast, but I don't have much confidence in this kernel as it is only being developed and has recently come to light.
+- [Purpur](https://purpur.pl3x.net/downloads/) - the kernel is time tested. Good opinion from many server administrators, but it will eat more RAM than the above kernels.
+- [Paper](https://papermc.io/) - a fork of Spigot. The most popular kernel in the world.
+
+*For enthusiasts: SSSPigot. You can find more details on the Internet. It is the most productive kernel in the world, but it is paid.
+
+Not recommended:
+- [Yatopia](https://github.com/YatopiaMC/Yatopia) - [it's a complete failure in the whole history of kernels in Minecraft](https://github.com/KennyTV/list-of-shame). By the way, the core is no longer supported and has been abandoned.
+- [Sugarcane](https://github.com/SugarcaneMC/Sugarcane) - Yatopia 2.0. Although it is under development, it contains Yatopia patches.
+- [Bukkit/Spigot](https://getbukkit.org/) - these kernels are obsolete. They are strictly forbidden to use (unless you're a masochist, of course).
+- Sponge (for mods and **sponge-plugins**) - in my personal opinion - complete crap. First of all there is no stability at all, and secondly there is a limitation in plugins: you can only put
+Secondly, there is a limitation for plugins: only plugins for this kernel can be installed, although there is a Magma kernel that can support both plugins and mods at the same time.
+
+*Please beware of other kernels! In 99.99% of cases these are scams. Your server and its data may be affected.
+
+### Adding a garbage collector
+
+A garbage collector is a must for every server, because Java really likes to eat RAM, but it cleans it badly. 
+
+If you have regular hosting you should put ``-XX:+UseSerialGC`` at the startup prompt. According to my tests, this builder turns out to be better than the one used in [Aikar's flags](https://mcflags.emc.gs).
 ````yaml
 java -Xmx2G -Xms16G -XX:+UseSerialGC -jar airplane.jar nogui 
 ````
+If you have a VDS -
+[this builder](https://github.com/hilltty/hilltty-flags) will really help you out! You should read the article before using it.
+````yaml
+java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile. encoding=UTF-8 airplane.jar --nogui
+````
 
-### Plugins
+### Map pregen
 
-Never install plugins that claim to optimize your server or plugins that change the way the world is generated. ClearLagg and the like create blatant lags, and you can expect CPU load problems from EpicWorldGenerator. I won't even mention the paid React, it's just a shame. The load of this plugin should be measured in cores, not in percentages. Also, you should be wary of LockLogin, CoreProtect, high values of playholder updates (put them on 60-100 ticks), several plugins per chat.
+Load the map with the [Chunky] plugin(https://www.spigotmc.org/resources/chunky.81534/). Stand at map zero coordinates and enter these commands alternately: `/chunky center`, `/chunky radius 6000`, `/chunky start`. Done! Now you have to wait a while for the plugin to load the 6000 blocks we set in the second command. It is desirable to limit your world to 6-10 thousand blocks. Believe me, this number of blocks will be enough for everyone to enjoy playing. If you need to increase the size of the map to higher values - instead of 6000 write your own number.
 
-Links to plugins that really optimize the server: [ServerBooster](https://www.spigotmc.org/resources/%E2%9C%85must-have%E2%9C%85-serverbooster-%E2%9A%A1optimize-your-server-anti-lag-fps-boost-multilanguage%E2%9A%A1.72184/), [Chunky (map loading)](https://www.spigotmc.org/resources/chunky.81534/), [MFM](https://www.spigotmc.org/resources/mob-farm-manager-supports-1-7-10-up-to-1-17-hopper-support.15127/).
+There is another plugin for map loading - [WorldBorder](https://www.spigotmc.org/resources/worldborder.60905/), if you need.
 
-Plugins that automatically save the world - demolish. Multiverse Core replace with Bungecord - a system that allows you to link multiple servers with each other. Also, you can only download plugins from these sites: [spigotmc.org](https://www.spigotmc.org/), [dev.bukkit.org](https://dev.bukkit.org/). Got caught on BlackSpigot? Get out of that cursed place right away. You won't be able to download anything good from there.
+#### Plugins
 
-![Screenshot_351](https://user-images.githubusercontent.com/74359983/123166286-eac96600-d47d-11eb-99a3-0ee7f00e96f2.png)
+Never install plugins that claim to optimize your server or plugins that change the world generation. ClearLagg and the like create **blinding lags**, and you can expect CPU load problems from EpicWorldGenerator and Iris. I won't even mention the paid React plugin because **it's just a shame**. You should measure this plugin's load in cores, not in percentages.
 
-Regarding server builds - I have a negative attitude towards them. Better not be lazy and create your own compilation, because in it you will understand much better than the one who built someone else. There are often viruses in compilations. To see if your build has viruses, download [this is the kernel you put in the plugins folder] (https://www.spigotmc.org/resources/spigot-anti-malware-detects-over-300-malicious-plugins.64982/). It detects viruses in all .jar files. 
+Links to plugins which really optimize server: [ServerBooster] (https://www.spigotmc.org/resources/%E2%9C%85must-have%E2%9C%85-serverbooster-%E2%9A%A1optimize-your-server-anti-lag-fps-boost-multilanguage%E2%9A%A1.72184/), [MFM] (https://www.spigotmc.org/resources/mob-farm-manager-supports-1-7-10-up-to-1-17-hopper-support.15127/).
 
-I advise you not to clog your server with too many plugins. The more plugins - the greater the load on the server. Add as many plugins, so that your players was pleasant to play on the server. Agree, when you see the text in front of you in the bossbar, scorboard, in automatic messages in chat, and even more inscriptions over the entire screen, the desire to leave this shit goes up to 100%. Believe me, if you remove all unnecessary information for the average player, he will be much more pleasant to play. Administrative plugins that are used once in a while - take down, various add-ons that few people will use - take down, unnecessary plugins just delete.
+Plugins that automatically save the world - demolish. Multiverse Core replace with Bungecord - a system that allows you to link multiple servers with each other. Also, download plugins **only from these sites**: [spigotmc.org](https://www.spigotmc.org/), [dev.bukkit.org](https://dev.bukkit.org/). Please don't look for resources elsewhere.
 
-### Kernel
-I recommend using [Airplane](https://github.com/TECHNOVE/Airplane) for 1.16-1.17.x. For 1.12 and below - Spigot. **Do not use** [Bukkit](https://getbukkit.org/), [Spigot](https://getbukkit.org/), [Paper](https://papermc.io/downloads) or other unknown kernels.
+*And one more thing: I advise you not to clog your server with too many plugins. The more plugins, the greater the load on the server. Add as many plugins as your players will enjoy playing. Agree, when you see a text in the bossbar, scorboard, automatic messages in the chat, and even more inscriptions over the whole screen, the desire to leave the server increases to 100%, right? Administrative plugins, which are used once in a while - take down, various add-ons, which few people will use - take down, unnecessary plugins simply delete.*
 
-### Configuration
+## Configurations
 
-#### server.properties
+There may be changes and additions in new versions of the article!
+
+## server.properties
 
 **view-distance** - chunk loading distance. If you have a lot of players on the server and lags occur because of the chunks - lower this parameter to 4-5 chunks. 6 chunks is quite enough for vanilla survival.
 
@@ -44,13 +78,14 @@ I recommend using [Airplane](https://github.com/TECHNOVE/Airplane) for 1.16-1.17
 view-distance=6
 ````
 
-#### bukkit.yml
-**spawn-limits** - parameter, which is responsible for changing the number of mobs per player. These limits apply only to animals or monsters in loaded chunks. If you don't need bats - set it to 0.
+### bukkit.yml
+**spawn-limits** is a parameter that is responsible for changing the number of mobs per player. These limits only apply to animals or monsters in loaded chunks. If you don't need bats - set it to 0.
 
 ````yaml
 monsters: 25, animals: 8, water-animals: 2, water-ambient: 1, ambient: 1
 ````
-**period-in-ticks** - the less, the faster the server will unload empty chunks. If you have more than 60 people playing on your server, it is advisable to lower this parameter to 350.
+
+**period-in-ticks** - the less, the faster the server will unload empty chunks. If your server has more than 60 players, it is advisable to lower this parameter to 350.
 
 ````yaml
 period-in-ticks: 400
@@ -62,8 +97,8 @@ period-in-ticks: 400
 autosave: 12000
 ````
 
-#### spigot.yml
-**save-user-cache-on-stop-only** - This parameter disables the permanent saving of user data. If your server crashes, user data will not be saved. It is advisable to restart your server every 48-72 hours to prevent losses. **Change this parameter at your own risk!
+### spigot.yml
+**save-user-cache-on-stop-only** - this parameter disables the permanent saving of user data. If your server crashes, user data will not be saved. It is advisable to restart your server every 48-72 hours to prevent losses. **Change this parameter at your own risk!
 
 ````yaml
 save-user-cache-on-stop-only: true
@@ -84,7 +119,7 @@ misc: 8
 mob-spawn-range: 5
 ````
 
-#### paper.yml
+### Paper.yml
 
 **max-auto-save-chunks-per-tick** - the parameter slows down the frequency of saving chunks. Don't set it lower than 12, otherwise some chunks might not be saved at all.
 
@@ -110,24 +145,12 @@ prevent-moving-into-unloaded-chunks: true
 armor-stands-tick: false
 ````
 
-### Map loading
+## Conclusion
 
-To avoid clogging up your disk too quickly, you can load your map with the [Chunky] plugin (https://www.spigotmc.org/resources/chunky.81534/). It's completely free. After you add the plugin to your plugins folder, restart your server and announce technical work for a few hours to your players. Stand at map zero coordinates and enter these commands in turn: `/chunky center`, `/chunky radius 6000`, `/chunky start`. Done! Now you have to wait from one to 8 hours for the plugin to load the 6000 blocks that we set in the second command. It is desirable to limit your world to 6000 blocks. Believe me, this number of blocks will be enough for everyone to enjoy playing. If you still need to increase the size of the map to higher values - instead of 6000 write your number.
+After you have done everything that was written in this article - check the stability and performance of the server. Is it freezing? To do this you will need to write these commands: `/mspt`, `/tps`. If after starting the server passed 5-10 minutes and the maximum number in mspt does not exceed 150.0, and TPS varies around 19.8-20.0 - great, you optimized your server. Congratulations!
 
-After loading the map you need to restart the server. The load on the processor will be reduced, and the consumption of RAM from the map is now completely gone.
+#### The server keeps lagging. What to do?
 
-### Anticheat
+Chances are you either did something wrong or you missed some point in the article. If the server is still lagging even after optimization, it's time to think about money, because you need to buy more power. Check out another one of my articles: https://github.com/cubelius/minecraft-server-create. Maybe you have 1 core and 30 players online? :D
 
-Almost every anticheat plugin is cheesy and consumes too many resources, but [Vulkan](https://www.spigotmc.org/resources/vulcan-advanced-cheat-detection-1-7-1-16-5.83626/) is not like that at all. It's the best anticheat in my opinion, productive and powerful, which makes "bugs" **very rarely.
-
-
-
-
-
-
-
-
-
-
-
-
+![1](https://user-images.githubusercontent.com/74359983/139352191-22411c4e-5aa1-4aaa-85a9-e73a32788ad9.png)
