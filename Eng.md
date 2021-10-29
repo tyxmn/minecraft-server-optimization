@@ -70,7 +70,7 @@ Plugins that automatically save the world - demolish. Multiverse Core replace wi
 
 There may be changes and additions in new versions of the article!
 
-## server.properties
+## [server.properties](https://minecraft.fandom.com/wiki/Server.properties)
 
 **view-distance** - chunk loading distance. If you have a lot of players on the server and lags occur because of the chunks - lower this parameter to 4-5 chunks. 6 chunks is quite enough for vanilla survival.
 
@@ -78,7 +78,7 @@ There may be changes and additions in new versions of the article!
 view-distance=6
 ````
 
-### bukkit.yml
+### [bukkit.yml](https://bukkit.fandom.com/wiki/Bukkit.yml)
 **spawn-limits** is a parameter that is responsible for changing the number of mobs per player. These limits only apply to animals or monsters in loaded chunks. If you don't need bats - set it to 0.
 
 ````yaml
@@ -97,7 +97,7 @@ period-in-ticks: 400
 autosave: 12000
 ````
 
-### spigot.yml
+### [spigot.yml](https://www.spigotmc.org/wiki/spigot-configuration/)
 **save-user-cache-on-stop-only** - this parameter disables the permanent saving of user data. If your server crashes, user data will not be saved. It is advisable to restart your server every 48-72 hours to prevent losses. **Change this parameter at your own risk!
 
 ````yaml
@@ -119,7 +119,7 @@ misc: 8
 mob-spawn-range: 5
 ````
 
-### Paper.yml
+### [paper.yml](https://gist.github.com/aikar/7e5978cfb22bb404f87a0dedac849358)
 
 **max-auto-save-chunks-per-tick** - the parameter slows down the frequency of saving chunks. Don't set it lower than 12, otherwise some chunks might not be saved at all.
 
