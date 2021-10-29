@@ -67,9 +67,7 @@ java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -
 
 ## Конфигурации
 
-В новых версиях статьи могут быть изменения и дополнения!
-
-### server.properties
+### [server.properties](https://minecraft.fandom.com/wiki/Server.properties)
 
 **view-distance** - дистанция прогрузки чанков. Если на сервере много игроков и лаги происходят из-за чанков - снижайте этот параметр до 4-5 чанков. 6 чанков вполне достаточно для ванильного выживания.
 
@@ -77,7 +75,7 @@ java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -
 view-distance=6
 ````
 
-### bukkit.yml
+### [bukkit.yml](https://bukkit.fandom.com/wiki/Bukkit.yml)
 **spawn-limits** - параметр, который отвечает за изменение количества мобов на одного игрока. Эти ограничения применяются только к животным или монстрам в загруженных чанках. Если вам не нужны летучие мыши - ambient ставьте на 0.
 
 ````yaml
@@ -96,7 +94,7 @@ period-in-ticks: 400
 autosave: 12000
 ````
 
-### spigot.yml
+### [spigot.yml](https://www.spigotmc.org/wiki/spigot-configuration/)
 **save-user-cache-on-stop-only** - этот параметр отключает постоянное сохранение пользовательских данных. Если ваш сервер аварийно выключиться, пользовательские данные не будут сохранены. Желательно перезагружать свой сервер раз в 48-72 часа, чтобы предотвратить потери. **Изменяйте этот параметр на свой страх и риск!**
 
 ````yaml
@@ -118,7 +116,7 @@ misc: 8
 mob-spawn-range: 5
 ````
 
-### Paper.yml
+### [paper.yml](https://gist.github.com/aikar/7e5978cfb22bb404f87a0dedac849358)
 
 **max-auto-save-chunks-per-tick** - параметр замедляет частоту сохранения чанков. Не опускайте значение ниже 12, иначе некоторые чанки могут не сохраниться вообще.
 
