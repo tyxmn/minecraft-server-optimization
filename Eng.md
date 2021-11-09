@@ -33,7 +33,7 @@ Not recommended:
 - [Bukkit/Spigot](https://getbukkit.org/) - these kernels are obsolete. They are strictly forbidden to use (unless you're a masochist, of course).
 - Sponge (for mods and **sponge-plugins**) - in my personal opinion - complete crap. First of all there is no stability at all, and secondly there is a limitation in plugins: you can only put
 Secondly, there is a limitation for plugins: only plugins for this kernel can be installed, although there is a Magma kernel that can support both plugins and mods at the same time.
-
+- Mohist - very unstable .jar. [More info - click](https://essentialsx.net/do-not-use-mohist.html).
 *Please beware of other kernels! In 99.99% of cases these are scams. Your server and its data may be affected.
 
 ### Adding a garbage collector
