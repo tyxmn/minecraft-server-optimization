@@ -3,4 +3,4 @@
 - [English](https://github.com/cubelius/minecraft-server-optimization/blob/main/Eng.md)
 - [Русский](https://github.com/cubelius/minecraft-server-optimization/blob/main/Ru.md)
 
-Release 1.6, update: October 29.
+Release 1.7, update: November 27.
