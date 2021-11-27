@@ -1,4 +1,5 @@
 > The translation may contain mistakes. Is the translation inaccurate? Write to me! - contact me in discord (Cubelius#0988).
+
 ![mso](https://user-images.githubusercontent.com/74359983/139340373-ced4a416-e216-452b-823d-1b260fa131ad.png)
 
 Lags in Minecraft server, what to do? - Believe me, this is the most popular question that almost every newcomer to servers in this wonderful
@@ -62,13 +63,11 @@ Never install plugins that claim to optimize your server or plugins that change 
 
 Links to plugins which really optimize server: [ServerBooster] (https://www.spigotmc.org/resources/%E2%9C%85must-have%E2%9C%85-serverbooster-%E2%9A%A1optimize-your-server-anti-lag-fps-boost-multilanguage%E2%9A%A1.72184/), [MFM] (https://www.spigotmc.org/resources/mob-farm-manager-supports-1-7-10-up-to-1-17-hopper-support.15127/).
 
-Plugins that automatically save the world - demolish. Multiverse Core replace with Bungecord - a system that allows you to link multiple servers with each other. Also, download plugins **only from these sites**: [spigotmc.org](https://www.spigotmc.org/), [dev.bukkit.org](https://dev.bukkit.org/). Please don't look for resources elsewhere.
+Plugins that automatically save the world - demolish. Multiverse Core replace with Bungecord - a system that allows you to link multiple servers with each other. Also, download plugins **only from these sites**: [spigotmc.org](https://www.spigotmc.org/), [dev.bukkit.org](https://dev.bukkit.org/). You might consider [Songoda](https://songoda.com/) and [MC-Market](https://www.mc-market.org/). Please don't look for resources elsewhere.
 
-*And one more thing: I advise you not to clog your server with too many plugins. The more plugins, the greater the load on the server. Add as many plugins as your players will enjoy playing. Agree, when you see a text in the bossbar, scorboard, automatic messages in the chat, and even more inscriptions over the whole screen, the desire to leave the server increases to 100%, right? Administrative plugins, which are used once in a while - take down, various add-ons, which few people will use - take down, unnecessary plugins simply delete.*
+*I advise you not to clog your server with too many plugins. The more plugins, the greater the load on the server. Unnecessary plugins - delete.*
 
 ## Configurations
-
-There may be changes and additions in new versions of the article!
 
 ## [server.properties](https://minecraft.fandom.com/wiki/Server.properties)
 
@@ -82,7 +81,12 @@ view-distance=6
 **spawn-limits** is a parameter that is responsible for changing the number of mobs per player. These limits only apply to animals or monsters in loaded chunks. If you don't need bats - set it to 0.
 
 ````yaml
-monsters: 25, animals: 8, water-animals: 2, water-ambient: 1, ambient: 1
+monsters: 30
+animals: 6
+water-animals: 2
+water-ambient: 2
+water-underground-creature: 2
+ambient: 1
 ````
 
 **period-in-ticks** - the less, the faster the server will unload empty chunks. If your server has more than 60 players, it is advisable to lower this parameter to 350.
